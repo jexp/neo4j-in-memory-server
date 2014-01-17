@@ -1,0 +1,11 @@
+data/
+.idea
+.DS_Store
+*.ipr
+*.iws
+*.iml
+*.zip
+target
+*.log
+tmp
+
