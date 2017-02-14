@@ -1,6 +1,7 @@
 package org.neo4j.server.inmemory;
 
-import org.neo4j.server.Bootstrapper;
+import org.neo4j.harness.internal.InMemoryBootstrapper;
+import org.neo4j.server.ServerBootstrapper;
 
 /**
  * @author mh
@@ -8,6 +9,6 @@ import org.neo4j.server.Bootstrapper;
  */
 public class BootstrapperTest {
     public static void main(String[] args) {
-        Bootstrapper.main(new String[0]);
+        ServerBootstrapper.start(new InMemoryBootstrapper(),"--home-dir","/tmp/test");
     }
 }

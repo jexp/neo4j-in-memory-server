@@ -1,4 +1,4 @@
-# Neo4j-In-Memory Server
+# Neo4j-In-Memory Server for Neo4j 3.1.x
 
 **Only for Testing**
 
@@ -7,14 +7,23 @@ So should not access disk but needs more RAM as it writes / reads all the data f
 
 Might be faster to start and incur less transactional overhead.
 
-To deploy run `copy.sh /path/to/neo4j-2.0.0` to build the latest version or unzip
-the provided [inmemory-server-2.0.zip](https://dl.dropboxusercontent.com/u/14493611/inmemory-server-2.0.zip) in your `/path/to/neo4j-2.0.0/system/lib` directory.
+To deploy run `copy.sh /path/to/neo4j-3.1.1` to build the latest version and add this bootstrap file into that server.  
 
-Content of `inmemory-server-2.0.zip`:
+or unzip the provided [inmemory-server-3.1.zip](https://dl.dropboxusercontent.com/u/14493611/inmemory-server-3.1.zip) in your `$NEO4J_HOME/lib` directory.
 
-* inmemory-2.0-SNAPSHOT.jar
-* neo4j-kernel-2.0.0-tests.jar
+Content of `inmemory-server-3.1.zip`:
 
-And restart your server.
+* neo4j-server-3.1.1-tests.jar
+* neo4j-kernel-3.1.1-tests.jar
+* neo4j-io-3.1.1-tests.jar
+* inmemory-3.1-SNAPSHOT.jar
+
+And restart your server, it will not keep content across restarts.
+
+and there is an REST endpoint to delete the db content while the server is running.
+
+`curl -XDELETE http://localhost:7474/test/clean`
 
 The in-memory server will be picked up automatically.
+
+Starts / Restarts should also be faster.
